@@ -101,12 +101,11 @@ def SendArchive(Bot: telebot.TeleBot, UserID: str, ChatID: int, UsersManagerObje
 		MessageBoxObject.send(ChatID, "archiving", "waiting")
 		
 		# Создание нового архива.
-		Archieve = zipfile.ZipFile(f'Data/Archives/{UserID}/{Date}.zip', 'w', compression=zipfile.ZIP_DEFLATED, compresslevel = 9)
-		for root, dirs, files in os.walk(f'Data/Files/{UserID}'): 
-			# Список всех файлов и папок в директории folder.
-			for file in files:
-				# Создание относительных путей и запись файлов в архив. os.path.join(root, file)
-				Archieve.write(f'Data/Files/{UserID}/{file}', arcname=file)
+		Archieve = zipfile.ZipFile(f'Data/Archives/{UserID}/{Date}.zip', 'w', compression = zipfile.ZIP_DEFLATED, compresslevel = 9)
+	
+		for file in os.listdir(f'Data/Files/{UserID}'): 
+			# Создание относительных путей и запись файлов в архив.
+			Archieve.write(filename = f'Data/Files/{UserID}/{file}', arcname = file)
 
 		# Закрытие архива.
 		Archieve.close()
