@@ -1,21 +1,19 @@
-
-#==========================================================================================#
-# >>>>> ПОДКЛЮЧЕНИЕ БИБЛИОТЕК И МОДУЛЕЙ <<<<< #
-#==========================================================================================#
-
-from dublib.Methods.JSON import ReadJSON
-from dublib.Methods.System import CheckPythonMinimalVersion
 from dublib.Methods.Filesystem import MakeRootDirectories, RemoveDirectoryContent
+from dublib.Methods.System import CheckPythonMinimalVersion
+from dublib.Methods.Filesystem import ReadJSON
+from dublib.Methods.System import Clear
+
 from Source.Functions import GenerateStatistics, SendArchive
 from Source.Users import UsersManager
 from Source.MessageBox import MessageBox
 from Source.Sizer import Sizer
 from Source.Flow import Flow
+
 from telebot import types
-
-
 import logging
 import telebot
+
+Clear()
 
 #==========================================================================================#
 # >>>>> ИНИЦИАЛИЗАЦИЯ СКРИПТА <<<<< #
@@ -217,4 +215,4 @@ def ProcessFileUpload(Message: types.Message):
                     UsersManagerObject.add_unloaded_file(Message.from_user.id, FileID, UniqueID, Message.content_type)
 
 # Запуск обработки запросов Telegram.
-Bot.polling(none_stop = True)
+Bot.infinity_polling()

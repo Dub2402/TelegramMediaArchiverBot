@@ -1,0 +1,19 @@
+# Скрипт инициализации сервиса TMAB.
+#==========================================================================================#
+# {Application Directory} – путь к директории со скриптом.
+
+[Unit]
+Description=TMAB
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory = {WorkingDirectory}
+ExecStart=/usr/bin/python3.10 main.py
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

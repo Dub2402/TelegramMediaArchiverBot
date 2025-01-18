@@ -1,8 +1,3 @@
-
-#==========================================================================================#
-# >>>>> ПОДКЛЮЧЕНИЕ БИБЛИОТЕК И МОДУЛЕЙ <<<<< #
-#==========================================================================================#
-
 from telebot.types import InputMediaAudio, InputMediaDocument, InputMediaPhoto, InputMediaVideo
 from dublib.Methods.Filesystem import RemoveDirectoryContent
 from Source.Users import UsersManager

@@ -1,33 +1,50 @@
 # Telegram Media Archiver Bot
 **Telegram Media Archiver Bot** – это [Telegram](https://telegram.org) - бот  для автоматической архивации медиавложений из ваших сообщений. С его помощью вы легко сможете скачать сотни файлов одним нажатием кнопки.
 
-# Порядок установки и использования
-1. Загрузить последний релиз. Распаковать.
-2. Установить [Python](https://www.python.org/downloads/) версии не старше 3.10. Рекомендуется добавить в PATH.
-3. В среду исполнения установить следующие пакеты: [dublib](https://github.com/DUB1401/dublib), [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI).
+## Порядок установки и использования
+1. Загрузить репозиторий. Распаковать.
+
+2. Установить [Python](https://www.python.org/downloads/) версии 3.11 и выше. Рекомендуется добавить в PATH.
+
+3. Открыть каталог со скриптом в консоли: можно воспользоваться командой cd или встроенными возможностями файлового менеджера.
+
+4. Создать виртуальное окружение Python.
+
 ```
-pip install dublib
-pip install pyTelegramBotAPI
+python -m venv .venv
 ```
-Либо установить сразу все пакеты при помощи следующей команды, выполненной из директории скрипта.
+
+5. Активировать вирутальное окружение.
+
+#### Для Windows.
+    
+```shell
+.venv\Scripts\activate.bat
+```
+
+#### Для Linux или MacOS.
+
+```bash
+source .venv/bin/activate
+```
+
+6. Установить зависимости скрипта.
+
 ```
 pip install -r requirements.txt
 ```
-4. Настроить бота путём редактирования [_Settings.json_](#Settings).
-5. Можно добавить команды в бота, для удобства работы [(бот будет работать и без этой настройки)](#AddCommands).
-6. Запустить файл _main.py_.
-7. Перейти в чат с ботом, токен которого указан в настройках, и следовать его инструкциям.
 
-<a name="Settings"></a> 
-# Settings.json
+7. Настроить бота путём редактирования _Settings.json_.
+
+### Settings.json.
+
 ```JSON
 "token": ""
 ```
-Сюда необходимо занести токен бота Telegram (можно получить у [BotFather](https://t.me/BotFather)).
 
-<a name="AddCommands"></a> 
-# Добавление команд 
-Можно указать в настройках бота в [BotFather](https://t.me/BotFather).
+Токен бота Telegram (можно получить у [BotFather](https://t.me/BotFather)).
+
+8. Для удобства работы с ботом рекомендуется добавить список команд в настройках бота в [BotFather](https://t.me/BotFather).
 
 Start - start working.
 
@@ -37,22 +54,18 @@ Statistics - send file statistics.
 
 Archive - archive files and send it.
 
-# Пример работы
-**Обработка команды start:**
+9. Запустить файл _main.py_.
 
-![image](https://github.com/kostevich/TelegramMediaArchiverBot/assets/109979502/584c8560-80bc-4648-9922-ffa8ae17df6c)
+```
+python main.py
+```
+
+10. Для автоматического запуска рекомендуется провести инициализацию сервиса через [systemd](systemd/README.md) на Linux или путём добавления его в автозагрузку на Windows.
+
+11. Перейти в чат с ботом, токен которого указан в настройках, и следовать его инструкциям.
 
 
-**Обработка команды statistics:**
+---
+**_Copyright © Dub Irina. 2023-2025._**
 
-![image](https://github.com/kostevich/TelegramMediaArchiverBot/assets/109979502/00ca8012-c869-440a-a308-1a893437c2b6)
 
-**Обработка команды clear:**
-
-![image](https://github.com/kostevich/TelegramMediaArchiverBot/assets/109979502/43eb152f-bf33-419b-84c6-397ebc24cc02)
-
-**Обработка команды archive:**
-
-![image](https://github.com/kostevich/TelegramMediaArchiverBot/assets/109979502/631ce178-5d5f-47a4-a4da-80dd4103661b)
-
-_Copyright © Kostevich Irina. 2023-2024._

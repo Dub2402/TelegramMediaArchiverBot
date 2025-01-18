@@ -1,4 +1,4 @@
-from dublib.Methods.JSON import ReadJSON, WriteJSON
+from dublib.Methods.Filesystem import ReadJSON, WriteJSON
 
 import telebot
 import os
